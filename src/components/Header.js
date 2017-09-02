@@ -1,11 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Header = props => {
+const AppHeader = props => {
 	return (
-		<div className="text-center">
-			<h2>{props.title}</h2>
+		<div>
+			<span><i className="fa fa-cog" aria-hidden="true"></i></span>
+			<h2 className="text-center">{ props.title }</h2>
 		</div>
-	)
-}
+	);
+};
 
-export default Header;
+AppHeader.propTypes = {
+	title: PropTypes.string.isRequired
+};
+
+export default AppHeader;
