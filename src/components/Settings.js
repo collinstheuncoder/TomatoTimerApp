@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Countdown from './Countdown';
 
 class Settings extends Component {
 	constructor(props) {
@@ -8,12 +7,10 @@ class Settings extends Component {
 		this.state = {
 			workDuration: 25,
 			breakDuration: 5,
-			isCounting: false
 		};
 
-		this.onChangeSettings = this.onChangeSettings.bind(this);
-		this.onSubmitSettings = this.onSubmitSettings.bind(this);
-		this.onStartCountdown = this.onStartCountdown.bind(this);
+		this.onChangeSettings  = this.onChangeSettings.bind(this);
+		this.onSubmitSettings  = this.onSubmitSettings.bind(this);	
 	}
 
 	onChangeSettings(e) {
@@ -27,22 +24,21 @@ class Settings extends Component {
 		console.log(this.state);
 	}
 
-	onStartCountdown() {
-		this.setState({
-			isCounting: true
-		});
-	}
-
 	render() {
+		const { 
+			workDuration, 
+			breakDuration,  
+		} = this.state; 
+
 		return (
 			<div className="settings">
-				<button type="button" className="btn btn-outline-info" onClick={ this.onStartCountdown }>Start</button>
+				<h3>Settings</h3>
 				<form>
 					<div className="form-group">
 						<label>Work Duration</label>
 						<select 
 							name="workDuration" 
-							value={ this.state.workDuration }
+							value={ workDuration }
 							onChange={ this.onChangeSettings }
 							className="form-control"
 						>
@@ -56,7 +52,7 @@ class Settings extends Component {
 						<label>Break Duration</label>
 						<select 
 							name="breakDuration" 
-							value={ this.state.breakDuration }
+							value={ breakDuration }
 							onChange={ this.onChangeSettings }
 							className="form-control"
 						>
@@ -67,12 +63,15 @@ class Settings extends Component {
 						</select>
 					</div>
 					<div className="form-group">
-						<button type="button" className="btn btn-outline-danger" onClick={ this.onSubmitSettings }>Submit Changes</button>
+						<button 
+							type="button" 
+							className="btn btn-outline-danger" 
+							onClick={ this.onSubmitSettings }
+						>
+							Submit
+						</button>
 					</div>
-				</form>
-				{
-					this.state.isCounting === true && <Countdown time={ Number(this.state.workDuration) }/> 
-				}	
+				</form>	
 			</div>
 		);
 	}

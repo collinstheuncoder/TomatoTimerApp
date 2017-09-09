@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const AppHeader = props => {
+const Header = ({ title, toggleSettings }) => {
 	return (
 		<div>
-			<span><i className="fa fa-cog" aria-hidden="true"></i></span>
-			<h2 className="text-center">{ props.title }</h2>
+			<span>
+				<i className="fa fa-cog" aria-hidden="true" onClick={ toggleSettings }></i>
+			</span>
+			<h2 className="text-center">{ title }</h2>
 		</div>
 	);
 };
 
-AppHeader.propTypes = {
-	title: PropTypes.string.isRequired
+Header.propTypes = {
+	title: PropTypes.string.isRequired,
+	toggleSettings: PropTypes.func.isRequired
 };
 
-export default AppHeader;
+export default Header;

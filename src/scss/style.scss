@@ -1,8 +1,14 @@
-/* Header */
 h2 {
 	margin: 50px 0;
 	font-size: 1.5em;
 	text-transform: uppercase;
+}
+
+h3 {
+	font-size: 1.25em;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 1em;
 }
 
 .fa-cog {
@@ -10,4 +16,40 @@ h2 {
 	position: absolute;
 	right: 2em;
 	cursor: pointer;
+}
+
+.settings {
+	form {
+		width: 30%;
+	   margin: auto;
+
+	   .form-control {
+			border-radius: 0;
+		}
+
+	   .btn {
+	   	margin-left: 0;
+	   	border-radius: 0;
+	   }
+	}
+}
+
+.buttons {
+	text-align: center;
+	margin: 3em;
+
+	.btn {
+		border-radius: 0;
+		margin-right: .25em;
+
+		.fa {
+			margin-right: .5em;
+		}
+	}
+}
+
+.sessions {
+	img {
+		width: 50px;
+	}
 }
